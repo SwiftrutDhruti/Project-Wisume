@@ -7,6 +7,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+
+import TemplateImg1 from "@/assets/images/temp1.jpg";
+import TemplateImg2 from "@/assets/images/2.jpg";
+import TemplateImg3 from "@/assets/images/3.jpg";
+
 const Template = () => {
   const { templateList } = useAuth();
   const [template1, setTemplate1] = useState({});
@@ -71,21 +76,21 @@ const Template = () => {
         <Slider {...settings}>
           <div>
             <img
-              src="/src/assets/images/temp1.jpg"
+              src={TemplateImg1}
               alt="Project 1"
               className="pe-5 opacity-20 lg:pe-0"
             />
           </div>
           <div>
             <img
-              src="/src/assets/images/2.jpg"
+              src={TemplateImg2}
               alt="Project 2"
               className="pe-5 opacity-20 lg:pe-0"
             />
           </div>
           <div>
             <img
-              src="/src/assets/images/3.jpg"
+              src={TemplateImg3}
               alt="Project 3"
               className="pe-5 opacity-20 lg:pe-0"
             />
