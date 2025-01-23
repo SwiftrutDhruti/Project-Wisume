@@ -12,8 +12,9 @@ const TemplateResumeModal = ({
 
   useEffect(() => {
     if (graphics != "all") {
+      console.log(templateList);
       var tList = templateList.filter((template) => {
-        if (template.TypeGraphic?.includes(graphics)) {
+        if (template.TypeGraphic.toString() === graphics) {
           return true;
         }
         return false;
@@ -28,7 +29,7 @@ const TemplateResumeModal = ({
   useEffect(() => {
     if (headshot != "all") {
       var tList = templateList.filter((template) => {
-        if (template.TypePhoto?.includes(headshot)) {
+        if (template.TypePhoto.toString() === headshot) {
           return true;
         }
         return false;

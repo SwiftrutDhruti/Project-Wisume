@@ -745,21 +745,10 @@ export const CreateResume = () => {
                       selectedTemplate={selectedTemplate.TemplateCode}
                       resumeData={allFormData}
                       previewImages={previewImages}
-                    />
-
-                    <button
-                      id="preview-resume-btn"
-                      className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 
-                      bg-primary text-white p-2 rounded hover:bg-primary/80 
-                      transition-opacity duration-300 ease-in-out
-                      invisible opacity-0 group-hover:visible group-hover:opacity-100"
-                      onClick={() => {
+                      handlePreviewResume={() => {
                         handlePreviewResume();
                       }}
-                    >
-                      <Eye className="w-5 h-5" />
-                      <span className="">Preview</span>
-                    </button>
+                    />
                   </div>
                 </div>
               )}
