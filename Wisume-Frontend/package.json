@@ -21,6 +21,7 @@
     "crypto": "^1.0.1",
     "docx": "^9.1.0",
     "docxtemplater": "^3.55.8",
+    "firebase": "^11.2.0",
     "framer-motion": "^11.16.4",
     "global": "^4.4.0",
     "google-auth-library": "^9.15.0",
