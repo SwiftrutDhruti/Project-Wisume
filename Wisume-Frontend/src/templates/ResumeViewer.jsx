@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Mustache from "mustache";
-import {
-  templateOne,
-  templateTwo,
-  templateThree,
-  templateFour,
-  templateFive,
-} from "../utils/temp";
+import { Eye } from "lucide-react";
 const getBase64FromUrl = async (url) => {
   try {
     const response = await fetch(url);
@@ -28,6 +22,7 @@ const ResumeViewer = ({
   selectedTemplate,
   resumeData,
   previewImages,
+  handlePreviewResume,
 }) => {
   const A4_WIDTH_MM = 210;
   const A4_HEIGHT_MM = 297;
@@ -192,34 +187,47 @@ const ResumeViewer = ({
           )}
         </div>
 
-        <div className="flex items-center gap-4 my-2">
-          <button
-            onClick={handlePreviousPage}
-            disabled={currentPage === 0}
-            className={`px-4 py-2 rounded-md ${
-              currentPage === 0
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-600 text-white"
-            }`}
-          >
-            {"<"}
-          </button>
+        <div className="w-full flex m-4">
+          <div className="flex flex-1 justify-center items-center gap-4">
+            <button
+              onClick={handlePreviousPage}
+              disabled={currentPage === 0}
+              className={`px-4 py-2 rounded-md ${
+                currentPage === 0
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600 text-white"
+              }`}
+            >
+              {"<"}
+            </button>
 
-          <span className={`text-sm text-primary`}>
-            Page {currentPage + 1} of {previewImages.length}
-          </span>
+            <span className={`text-sm text-primary`}>
+              Page {currentPage + 1} of {previewImages.length}
+            </span>
 
-          <button
-            onClick={handleNextPage}
-            disabled={currentPage === previewImages.length - 1}
-            className={`px-4 py-2 rounded-md ${
-              currentPage === previewImages.length - 1
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-600 text-white"
-            }`}
-          >
-            {">"}
-          </button>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === previewImages.length - 1}
+              className={`px-4 py-2 rounded-md ${
+                currentPage === previewImages.length - 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600 text-white"
+              }`}
+            >
+              {">"}
+            </button>
+          </div>
+
+          {handlePreviewResume && (
+            <button
+              id="preview-resume-btn"
+              className="flex justify-center items-center ml-2 px-2 bg-primary text-white rounded hover:bg-primary/80"
+              onClick={handlePreviewResume}
+            >
+              <Eye className="w-5 h-5 mr-2" />
+              <span className="">Preview</span>
+            </button>
+          )}
         </div>
       </div>
 

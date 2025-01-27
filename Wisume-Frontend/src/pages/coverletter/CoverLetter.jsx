@@ -24,6 +24,7 @@ const CoverLetter = () => {
   const previousTemplate = location.state?.template;
   const [isUpdate, setIsUpdate] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState(false); // State to handle modal visibility
@@ -288,11 +289,18 @@ const CoverLetter = () => {
           <div className="lg:w-1/2 w-full p-4">
             <div className="flex justify-end">
               <div className="w-full flex justify-between mb-4">
-                <h1 className="md:text-[30px] text-[15px] font-bold bowlby">
-                  Cover Letter
-                </h1>
-
-                <div className="flex-1"></div>
+                <div className="flex-1">
+                  <img
+                    className="cursor-pointer"
+                    src={ic_back}
+                    alt="back icon"
+                    width={25}
+                    height={25}
+                    onClick={() => {
+                      navigate(-1);
+                    }}
+                  />
+                </div>
 
                 <button
                   className="bg-primary flex lg:hidden text-white p-2 me-3 rounded 
@@ -510,21 +518,10 @@ const CoverLetter = () => {
                     selectedTemplate={selectedTemplate.TemplateCode}
                     resumeData={formData}
                     previewImages={previewImages}
-                  />
-
-                  <button
-                    id="preview-resume-btn"
-                    className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 
-                      bg-primary text-white p-2 rounded hover:bg-primary/80 
-                      transition-opacity duration-300 ease-in-out
-                      invisible opacity-0 group-hover:visible group-hover:opacity-100"
-                    onClick={() => {
+                    handlePreviewResume={() => {
                       handlePreviewResume();
                     }}
-                  >
-                    <Eye className="w-5 h-5" />
-                    <span className="">Preview</span>
-                  </button>
+                  />
                 </div>
               </div>
             )}

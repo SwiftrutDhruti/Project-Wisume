@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { axiosInstance } from "../services/axiosInstance.js";
 import { cleanFormData } from "../utils/conditional.js";
 import ResumeItem from "../components/resume/ResumeItem.jsx";
+import resume from "../assets/images/resume.jpg";
 
 const LandingPage = () => {
   const [isResumeSelected, setResumeSelected] = useState(true);
@@ -211,7 +212,7 @@ const LandingPage = () => {
               <div className="mb-6">
                 <div className="bg-white border-2 rounded-xl border-gray-100">
                   <img
-                    src="/src/assets/images/resume.jpg"
+                    src={resume}
                     alt="Resume"
                     className="w-64 h-64 mx-auto"
                   />
